@@ -17,7 +17,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-df = pd.read_csv(r'C:\Users\movies_data.csv', low_memory=False)  #turn off DtypeWarning
+df = pd.read_csv(r'movies_data.csv', low_memory=False)  #turn off DtypeWarning
 df.head()
 df.shape
 df['overview'].head()
