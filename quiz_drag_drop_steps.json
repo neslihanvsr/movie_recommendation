@@ -1,0 +1,164 @@
+{
+  "quiz_drag_drop_steps": [
+    {
+      "type": "waitForElement",
+      "name": "Wait for Quiz Question Content to Load",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "quiz-question-content",
+            "at": "//*[contains(@class, \"quiz__question-content\")]",
+            "cl": "//*[@class=\"MuiCardContent-root quiz__question-content css-15q2cw4\"]",
+            "co": ".quiz__question-content"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "waitForElement",
+      "name": "Wait for Drag and Drop Options to Load",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "matching-options-container",
+            "at": "//*[contains(@class, \"quiz__matching-options-container\")]",
+            "cl": "//*[@class=\"quiz__matching-options-container MuiBox-root css-0\"]",
+            "co": ".quiz__matching-options-container"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag 'What is the rationale for AI decisions?' to Transparency and traceability",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "rationale-option",
+            "at": "//*[contains(@class, \"quiz__matching-option\") and contains(., \"What is the rationale for AI decisions?\")]",
+            "cl": "//*[@class=\"quiz__matching-option MuiBox-root css-0\" and contains(., \"rationale\")]",
+            "co": ".quiz__matching-option:has(p:contains('rationale'))"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "transparency-dropzone",
+            "at": "//*[contains(@class, \"quiz__matching-pair\") and contains(., \"Transparency and traceability\")]//*[contains(@class, \"quiz__matching-dropzone\")]",
+            "cl": "//*[contains(., \"Transparency and traceability\")]/following-sibling::*//*[@class=\"quiz__matching-dropzone MuiBox-root css-0\"]",
+            "co": ".quiz__matching-pair:has(:contains('Transparency and traceability')) .quiz__matching-dropzone"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag 'Who is responsible in automated decisioning?' to Responsibility and accountability",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "responsibility-option",
+            "at": "//*[contains(@class, \"quiz__matching-option\") and contains(., \"Who is responsible in\")]",
+            "cl": "//*[@class=\"quiz__matching-option MuiBox-root css-0\" and contains(., \"responsible\")]",
+            "co": ".quiz__matching-option:has(p:contains('responsible'))"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "accountability-dropzone",
+            "at": "//*[contains(@class, \"quiz__matching-pair\") and contains(., \"Responsibility and accountability\")]//*[contains(@class, \"quiz__matching-dropzone\")]",
+            "cl": "//*[contains(., \"Responsibility and accountability\")]/following-sibling::*//*[@class=\"quiz__matching-dropzone MuiBox-root css-0\"]",
+            "co": ".quiz__matching-pair:has(:contains('Responsibility and accountability')) .quiz__matching-dropzone"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag 'How to manage monopoly over data?' to Free access to data",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "monopoly-option",
+            "at": "//*[contains(@class, \"quiz__matching-option\") and contains(., \"monopoly over data\")]",
+            "cl": "//*[@class=\"quiz__matching-option MuiBox-root css-0\" and contains(., \"monopoly\")]",
+            "co": ".quiz__matching-option:has(p:contains('monopoly'))"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "data-access-dropzone",
+            "at": "//*[contains(@class, \"quiz__matching-pair\") and contains(., \"Free access to data\")]//*[contains(@class, \"quiz__matching-dropzone\")]",
+            "cl": "//*[contains(., \"Free access to data\")]/following-sibling::*//*[@class=\"quiz__matching-dropzone MuiBox-root css-0\"]",
+            "co": ".quiz__matching-pair:has(:contains('Free access to data')) .quiz__matching-dropzone"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag 'How to control autonomous weapons?' to Military use of AI",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "weapons-option",
+            "at": "//*[contains(@class, \"quiz__matching-option\") and contains(., \"autonomous weapons\")]",
+            "cl": "//*[@class=\"quiz__matching-option MuiBox-root css-0\" and contains(., \"weapons\")]",
+            "co": ".quiz__matching-option:has(p:contains('weapons'))"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "military-dropzone",
+            "at": "//*[contains(@class, \"quiz__matching-pair\") and contains(., \"Military use of AI\")]//*[contains(@class, \"quiz__matching-dropzone\")]",
+            "cl": "//*[contains(., \"Military use of AI\")]/following-sibling::*//*[@class=\"quiz__matching-dropzone MuiBox-root css-0\"]",
+            "co": ".quiz__matching-pair:has(:contains('Military use of AI')) .quiz__matching-dropzone"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag 'E.g. should machines pay taxes?' to Equal treatment of humans & machines",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "taxes-option",
+            "at": "//*[contains(@class, \"quiz__matching-option\") and contains(., \"machines pay taxes\")]",
+            "cl": "//*[@class=\"quiz__matching-option MuiBox-root css-0\" and contains(., \"taxes\")]",
+            "co": ".quiz__matching-option:has(p:contains('taxes'))"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "equal-treatment-dropzone",
+            "at": "//*[contains(@class, \"quiz__matching-pair\") and contains(., \"Equal treatment of humans\")]//*[contains(@class, \"quiz__matching-dropzone\")]",
+            "cl": "//*[contains(., \"Equal treatment of humans\")]/following-sibling::*//*[@class=\"quiz__matching-dropzone MuiBox-root css-0\"]",
+            "co": ".quiz__matching-pair:has(:contains('Equal treatment of humans')) .quiz__matching-dropzone"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "waitForElement",
+      "name": "Verify All Drop Zones are Filled",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "filled-dropzone",
+            "at": "//*[contains(@class, \"quiz__matching-dropzone\") and not(contains(., \"Drop answer here\"))]",
+            "cl": "//*[@class=\"quiz__matching-dropzone MuiBox-root css-0\" and not(contains(., \"Drop answer here\"))]",
+            "co": ".quiz__matching-dropzone:not(:contains('Drop answer here'))"
+          }
+        }
+      },
+      "timeout": 30
+    }
+  ]
+}
