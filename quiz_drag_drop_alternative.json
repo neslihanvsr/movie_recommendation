@@ -1,0 +1,171 @@
+{
+  "quiz_drag_drop_alternative_steps": [
+    {
+      "type": "waitForElement",
+      "name": "Wait for Quiz Question Content to Load",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "quiz-question-content",
+            "at": "//*[contains(@class, \"quiz__question-content\")]",
+            "cl": "//*[contains(@class, \"MuiCardContent-root\")]",
+            "co": ".quiz__question-content"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "waitForElement",
+      "name": "Wait for Draggable Options to Load",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "matching-options",
+            "at": "//*[contains(@class, \"quiz__matching-option\") and @draggable=\"true\"]",
+            "cl": "//*[@draggable=\"true\" and contains(@class, \"quiz__matching-option\")]",
+            "co": ".quiz__matching-option[draggable='true']"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag First Option (Rationale) to First Drop Zone (Transparency)",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "first-draggable",
+            "at": "(//*[contains(@class, \"quiz__matching-option\") and @draggable=\"true\"])[1]",
+            "cl": "(//*[@draggable=\"true\" and contains(@class, \"quiz__matching-option\")])[1]",
+            "co": ".quiz__matching-option[draggable='true']:nth-child(1)"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "first-dropzone",
+            "at": "(//*[contains(@class, \"quiz__matching-dropzone\")])[1]",
+            "cl": "(//*[contains(@class, \"quiz__matching-dropzone\")])[1]",
+            "co": ".quiz__matching-dropzone:nth-child(1)"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag Second Option (Responsibility) to Second Drop Zone (Accountability)",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "second-draggable",
+            "at": "(//*[contains(@class, \"quiz__matching-option\") and @draggable=\"true\"])[2]",
+            "cl": "(//*[@draggable=\"true\" and contains(@class, \"quiz__matching-option\")])[2]",
+            "co": ".quiz__matching-option[draggable='true']:nth-child(2)"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "second-dropzone",
+            "at": "(//*[contains(@class, \"quiz__matching-dropzone\")])[2]",
+            "cl": "(//*[contains(@class, \"quiz__matching-dropzone\")])[2]",
+            "co": ".quiz__matching-dropzone:nth-child(2)"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag Third Option (Monopoly) to Third Drop Zone (Data Access)",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "third-draggable",
+            "at": "(//*[contains(@class, \"quiz__matching-option\") and @draggable=\"true\"])[3]",
+            "cl": "(//*[@draggable=\"true\" and contains(@class, \"quiz__matching-option\")])[3]",
+            "co": ".quiz__matching-option[draggable='true']:nth-child(3)"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "third-dropzone",
+            "at": "(//*[contains(@class, \"quiz__matching-dropzone\")])[3]",
+            "cl": "(//*[contains(@class, \"quiz__matching-dropzone\")])[3]",
+            "co": ".quiz__matching-dropzone:nth-child(3)"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag Fourth Option (Weapons) to Fourth Drop Zone (Military)",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "fourth-draggable",
+            "at": "(//*[contains(@class, \"quiz__matching-option\") and @draggable=\"true\"])[4]",
+            "cl": "(//*[@draggable=\"true\" and contains(@class, \"quiz__matching-option\")])[4]",
+            "co": ".quiz__matching-option[draggable='true']:nth-child(4)"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "fourth-dropzone",
+            "at": "(//*[contains(@class, \"quiz__matching-dropzone\")])[4]",
+            "cl": "(//*[contains(@class, \"quiz__matching-dropzone\")])[4]",
+            "co": ".quiz__matching-dropzone:nth-child(4)"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag Fifth Option (Taxes) to Fifth Drop Zone (Equal Treatment)",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "fifth-draggable",
+            "at": "(//*[contains(@class, \"quiz__matching-option\") and @draggable=\"true\"])[5]",
+            "cl": "(//*[@draggable=\"true\" and contains(@class, \"quiz__matching-option\")])[5]",
+            "co": ".quiz__matching-option[draggable='true']:nth-child(5)"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "fifth-dropzone",
+            "at": "(//*[contains(@class, \"quiz__matching-dropzone\")])[5]",
+            "cl": "(//*[contains(@class, \"quiz__matching-dropzone\")])[5]",
+            "co": ".quiz__matching-dropzone:nth-child(5)"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "wait",
+      "name": "Wait for Drag and Drop Actions to Complete",
+      "params": {
+        "value": 2000
+      }
+    },
+    {
+      "type": "assertElementNotPresent",
+      "name": "Verify No Empty Drop Zones Remain",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "empty-dropzone",
+            "at": "//*[contains(@class, \"quiz__matching-dropzone\") and contains(., \"Drop answer here\")]",
+            "cl": "//*[contains(@class, \"quiz__matching-placeholder\") and contains(., \"Drop answer here\")]",
+            "co": ".quiz__matching-dropzone:contains('Drop answer here')"
+          }
+        }
+      },
+      "timeout": 10
+    }
+  ]
+}

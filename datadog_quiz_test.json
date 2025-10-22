@@ -1,0 +1,299 @@
+{
+  "type": "browser",
+  "name": "Quiz Platform - Drag and Drop Test",
+  "config": {
+    "request": {
+      "url": "https://your-quiz-platform.com",
+      "method": "GET"
+    },
+    "assertions": [],
+    "configVariables": [
+      {
+        "name": "USERNAME",
+        "type": "text",
+        "example": "your-username"
+      },
+      {
+        "name": "PASSWORD",
+        "type": "text",
+        "example": "your-password",
+        "secure": true
+      }
+    ]
+  },
+  "options": {
+    "device_ids": ["laptop_large"],
+    "min_failure_duration": 0,
+    "min_location_failed": 1,
+    "monitor_name": "Quiz Platform - Drag and Drop Test",
+    "monitor_priority": 3,
+    "retry": {
+      "count": 2,
+      "interval": 300
+    },
+    "tick_every": 900
+  },
+  "locations": ["aws:us-east-1"],
+  "steps": [
+    {
+      "type": "goto",
+      "name": "Navigate to Quiz Platform",
+      "params": {
+        "url": "https://your-quiz-platform.com"
+      },
+      "timeout": 60
+    },
+    {
+      "type": "click",
+      "name": "Click Login Button",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "btn-login",
+            "at": "//*[@id=\"login-btn\"]",
+            "cl": "//*[contains(@class, \"login-button\")]",
+            "co": "[data-testid=\"login-button\"]"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "type",
+      "name": "Enter Username",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "username",
+            "at": "//*[@id=\"username\"]",
+            "cl": "//*[contains(@class, \"username-input\")]",
+            "co": "input[name=\"username\"]"
+          }
+        },
+        "value": "{{ USERNAME }}"
+      },
+      "timeout": 30
+    },
+    {
+      "type": "type",
+      "name": "Enter Password",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "password",
+            "at": "//*[@id=\"password\"]",
+            "cl": "//*[contains(@class, \"password-input\")]",
+            "co": "input[name=\"password\"]"
+          }
+        },
+        "value": "{{ PASSWORD }}"
+      },
+      "timeout": 30
+    },
+    {
+      "type": "click",
+      "name": "Submit Login",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "submit-login",
+            "at": "//*[@type=\"submit\"]",
+            "cl": "//*[contains(@class, \"submit-button\")]",
+            "co": "button[type=\"submit\"]"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "waitForElement",
+      "name": "Wait for Dashboard to Load",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "dashboard",
+            "at": "//*[contains(@class, \"dashboard\")]",
+            "cl": "//*[@id=\"main-dashboard\"]",
+            "co": "[data-testid=\"dashboard\"]"
+          }
+        }
+      },
+      "timeout": 60
+    },
+    {
+      "type": "click",
+      "name": "Navigate to Quiz Section",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "quiz-nav",
+            "at": "//*[contains(text(), \"Quiz\") or contains(text(), \"Quizzes\")]",
+            "cl": "//*[contains(@class, \"quiz-nav\")]",
+            "co": "a[href*=\"quiz\"]"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "waitForElement",
+      "name": "Wait for Quiz Page to Load",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "quiz-container",
+            "at": "//*[contains(@class, \"quiz-container\")]",
+            "cl": "//*[@id=\"quiz-page\"]",
+            "co": "[data-testid=\"quiz-container\"]"
+          }
+        }
+      },
+      "timeout": 60
+    },
+    {
+      "type": "scroll",
+      "name": "Scroll to Quiz Questions (Skip Video)",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "quiz-questions",
+            "at": "//*[contains(@class, \"quiz-questions\") or contains(@class, \"question-container\")]",
+            "cl": "//*[@id=\"questions-section\"]",
+            "co": "[data-testid=\"quiz-questions\"]"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "waitForElement",
+      "name": "Wait for Drag and Drop Question",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "drag-drop-question",
+            "at": "//*[contains(@class, \"drag-drop\") or contains(@class, \"draggable\")]",
+            "cl": "//*[@data-question-type=\"drag-drop\"]",
+            "co": "[data-testid=\"drag-drop-question\"]"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag First Answer to Drop Zone",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "draggable-item-1",
+            "at": "//*[contains(@class, \"draggable-item\")][1]",
+            "cl": "//*[@data-draggable=\"item-1\"]",
+            "co": ".draggable-item:first-child"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "drop-zone-1",
+            "at": "//*[contains(@class, \"drop-zone\")][1]",
+            "cl": "//*[@data-drop-zone=\"zone-1\"]",
+            "co": ".drop-zone:first-child"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag Second Answer to Drop Zone",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "draggable-item-2",
+            "at": "//*[contains(@class, \"draggable-item\")][2]",
+            "cl": "//*[@data-draggable=\"item-2\"]",
+            "co": ".draggable-item:nth-child(2)"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "drop-zone-2",
+            "at": "//*[contains(@class, \"drop-zone\")][2]",
+            "cl": "//*[@data-drop-zone=\"zone-2\"]",
+            "co": ".drop-zone:nth-child(2)"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "dragAndDrop",
+      "name": "Drag Third Answer to Drop Zone",
+      "params": {
+        "source": {
+          "multiLocator": {
+            "ab": "draggable-item-3",
+            "at": "//*[contains(@class, \"draggable-item\")][3]",
+            "cl": "//*[@data-draggable=\"item-3\"]",
+            "co": ".draggable-item:nth-child(3)"
+          }
+        },
+        "target": {
+          "multiLocator": {
+            "ab": "drop-zone-3",
+            "at": "//*[contains(@class, \"drop-zone\")][3]",
+            "cl": "//*[@data-drop-zone=\"zone-3\"]",
+            "co": ".drop-zone:nth-child(3)"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "click",
+      "name": "Submit Quiz Answers",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "submit-quiz",
+            "at": "//*[contains(text(), \"Submit\") or contains(text(), \"Finish\")]",
+            "cl": "//*[contains(@class, \"submit-button\") or contains(@class, \"finish-button\")]",
+            "co": "button[data-action=\"submit-quiz\"]"
+          }
+        }
+      },
+      "timeout": 30
+    },
+    {
+      "type": "waitForElement",
+      "name": "Wait for Quiz Completion Confirmation",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "quiz-complete",
+            "at": "//*[contains(text(), \"completed\") or contains(text(), \"success\")]",
+            "cl": "//*[contains(@class, \"success-message\") or contains(@class, \"completion-message\")]",
+            "co": "[data-testid=\"quiz-completion\"]"
+          }
+        }
+      },
+      "timeout": 60
+    },
+    {
+      "type": "assertText",
+      "name": "Verify Quiz Completion",
+      "params": {
+        "element": {
+          "multiLocator": {
+            "ab": "completion-text",
+            "at": "//*[contains(text(), \"Quiz completed\") or contains(text(), \"Successfully submitted\")]",
+            "cl": "//*[contains(@class, \"completion-text\")]",
+            "co": ".completion-message, .success-message"
+          }
+        },
+        "value": "Quiz completed|Successfully|submitted|finished"
+      },
+      "timeout": 30
+    }
+  ]
+}
